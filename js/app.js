@@ -1,4 +1,4 @@
-
+/*Cuando hacemos un deploy en desarrollo, encontramos que el / no existe igual al de localhost. */
 var url = window.location.href;
 var swLocation = '/OTTO_PWA/sw.js';
 
