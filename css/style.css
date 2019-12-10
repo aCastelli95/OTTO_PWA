@@ -6,6 +6,13 @@ body {
     background-color: #4a47a3;
 }
 
+p{
+    font-size:25px;
+    font-family: roboto condensed,sans-serif;
+    color: white
+
+}
+
 .row {
     text-align: center;
 }
