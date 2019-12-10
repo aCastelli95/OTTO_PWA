@@ -1,4 +1,17 @@
+body {
+    background-color: #413c69;
+}
 
+.card-body{
+    background-color: #4a47a3;
+}
+
+.row {
+    text-align: center;
+}
+.card-header{
+    text-align: center;
+}
 
 .share {
     background-color: #32d900;
