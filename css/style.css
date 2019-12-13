@@ -5,7 +5,9 @@ body {
 .card-body{
     background-color: #4a47a3;
 }
-
+.btn-rounded{
+    border-radius: 50px;
+}
 p{
     font-size:25px;
     font-family: roboto condensed,sans-serif;
