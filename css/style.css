@@ -1,6 +1,10 @@
-body {
-    background-color: #413c69;
+nav {
+    background-color: #4a47a3;
 }
+
+.perfil{ 
+    width: 50px; height: 50px;
+  }
 
 .card-body{
     background-color: #4a47a3;
@@ -8,7 +12,7 @@ body {
 .btn-rounded{
     border-radius: 50px;
 }
-p{
+p, a{
     font-size:25px;
     font-family: roboto condensed,sans-serif;
     color: white
@@ -30,4 +34,24 @@ p{
     text-align: center;
     width: 100%;
   }
+  
+  .btn-position-control {
+    text-align: center;
+    position: relative;
+    top: 40px;
+  
+  }
 
+  .btn-control {
+    border: 1px solid #466995;
+    margin: 20px;
+    display: inline-block;
+    height: 150px;
+    width: 200px;
+   
+  }
+  
+  .btn-control:hover {
+    background: #C0D6DF;
+    color: #FFF;
+  }
