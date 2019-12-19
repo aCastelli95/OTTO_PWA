@@ -5,11 +5,12 @@ const DYNAMIC_CACHE   = 'dynamic-v1'; // Contenido como imagenes o pdf que varia
 const INMUTABLE_CACHE = 'inmutable-v1'; // Contiene todas las urls de librerias externas que no van a cambiar, ejemplo Boostrap
 
 const APP_SHELL = [
-    '/',
+    //'/',
     'index.html',
     'css/style.css',
     'img/otto.ino',
     'js/app.js',
+    'js/sw-utils.js',
     'js/events/eventsButtons.js'
 ];
 
