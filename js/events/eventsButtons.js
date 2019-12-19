@@ -1,6 +1,6 @@
 var b1 = document.getElementById('botonX1');
 var b2 = document.getElementById('botonX2');
-var b3 = document.getElementById('botonX3');
+/*var b3 = document.getElementById('botonX3');
 var b4 = document.getElementById('botonX4');
 var b5 = document.getElementById('botonX5');
 var b6 = document.getElementById('botonX6');
@@ -8,11 +8,11 @@ var b7 = document.getElementById('botonX7');
 var b8 = document.getElementById('botonX8');
 var b9 = document.getElementById('botonX9');
 var b10 = document.getElementById('botonX10');
-
+* */
 
 var laFunc = function windowsAlertText(event){
   console.log(event);
-  window.alert('Tocaste el boton amego ' + event.path[0].id);
+  window.alert('Tocaste el boton' + event.path[0].id);
 };
 
 window.onload = function() {

@@ -1,23 +1,26 @@
 importScripts('js/sw-utils.js');
 
-const STATIC_CACHE    = 'static'; // EL corazon de la app esta en esta cache( template, css basicos, etc.)
-const DYNAMIC_CACHE   = 'dynamic';
-const INMUTABLE_CACHE = 'inmutable'; // Contiene todas las urls de librerias externas que no van a cambiar, ejemplo Boostrap
-
-
+const STATIC_CACHE    = 'static-v1'; // EL corazon de la app esta en esta cache( template, css basicos, etc.)
+const DYNAMIC_CACHE   = 'dynamic-v1'; // Contenido como imagenes o pdf que varian constantementes por mantenimiento de aplicativos
+const INMUTABLE_CACHE = 'inmutable-v1'; // Contiene todas las urls de librerias externas que no van a cambiar, ejemplo Boostrap
 
 const APP_SHELL = [
-    // '/',
+    '/',
     'index.html',
     'css/style.css',
-    'img/favicon.ico',
+    'img/otto.ino',
     'js/app.js',
-    'js/sw-utils.js'
+    'js/events/eventsButtons.js'
 ];
 
 const APP_SHELL_INMUTABLE = [
-    'https://use.fontawesome.com/releases/v5.3.1/css/all.css',
-    'css/animate.css',
+    'https://use.fontawesome.com/releases/v5.11.2/css/all.css',
+    'css/bootstrap.min.css',
+    'css/mdb.min.css',
+    'js/jquery.min.js',
+    'js/popper.min.js',
+    'js/bootstrap.min.js',
+    'js/mdb.min.js',
 ];
 
 self.addEventListener('install', e => {
@@ -26,7 +29,7 @@ self.addEventListener('install', e => {
         cache.addAll( APP_SHELL ));
 
     const cacheInmutable = caches.open( INMUTABLE_CACHE ).then(cache => 
-        cache.addAll( APP_SHELL_INMUTABLE ));
+        cache.addAll( APP_SHELL_INMUTABLE )).catch(e => console.log(e));
 
     e.waitUntil( Promise.all([ cacheStatic, cacheInmutable ])  );
 
@@ -72,15 +75,10 @@ self.addEventListener('fetch', e => {
         if ( res ) {
             return res;
         } else {
-
             return fetch( e.request ).then( newRes => {
-
-                return actualizaCacheDinamico( DYNAMIC_CACHE, e.request, newRes );
-
+                return actualizaCacheDinamico( DYNAMIC_CACHE, e.request, newRes )
             });
-
         }
-
     });
 
     e.respondWith( respuesta );
