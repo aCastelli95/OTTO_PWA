@@ -1,10 +1,9 @@
-// imports
 importScripts('js/sw-utils.js');
 
+const STATIC_CACHE    = 'static'; // EL corazon de la app esta en esta cache( template, css basicos, etc.)
+const DYNAMIC_CACHE   = 'dynamic';
+const INMUTABLE_CACHE = 'inmutable'; // Contiene todas las urls de librerias externas que no van a cambiar, ejemplo Boostrap
 
-const STATIC_CACHE    = 'static-v4';
-const DYNAMIC_CACHE   = 'dynamic-v2';
-const INMUTABLE_CACHE = 'inmutable-v1';
 
 
 const APP_SHELL = [
@@ -12,27 +11,16 @@ const APP_SHELL = [
     'index.html',
     'css/style.css',
     'img/favicon.ico',
-    'img/avatars/hulk.jpg',
-    'img/avatars/ironman.jpg',
-    'img/avatars/spiderman.jpg',
-    'img/avatars/thor.jpg',
-    'img/avatars/wolverine.jpg',
     'js/app.js',
     'js/sw-utils.js'
 ];
 
 const APP_SHELL_INMUTABLE = [
-    'https://fonts.googleapis.com/css?family=Quicksand:300,400',
-    'https://fonts.googleapis.com/css?family=Lato:400,300',
     'https://use.fontawesome.com/releases/v5.3.1/css/all.css',
     'css/animate.css',
-    'js/libs/jquery.js'
 ];
 
-
-
 self.addEventListener('install', e => {
-
 
     const cacheStatic = caches.open( STATIC_CACHE ).then(cache => 
         cache.addAll( APP_SHELL ));
@@ -40,19 +28,21 @@ self.addEventListener('install', e => {
     const cacheInmutable = caches.open( INMUTABLE_CACHE ).then(cache => 
         cache.addAll( APP_SHELL_INMUTABLE ));
 
-
-
     e.waitUntil( Promise.all([ cacheStatic, cacheInmutable ])  );
 
 });
 
 
+/**Contiene una activacion de los recorridos actualizar. Si encontramos una cache
+ * con el titulo de mi version que se deploya en PROD o en la composicion se encuentra
+ * que contiene parte de su nombre, entonces la borra. 
+ * Esto siempre mantiene actualizada solo la estatica
+ */
 self.addEventListener('activate', e => {
 
     const respuesta = caches.keys().then( keys => {
 
         keys.forEach( key => {
-
             if (  key !== STATIC_CACHE && key.includes('static') ) {
                 return caches.delete(key);
             }
@@ -69,11 +59,13 @@ self.addEventListener('activate', e => {
 
 });
 
-
-
-
-self.addEventListener( 'fetch', e => {
-
+/**
+ * Como indica la palabra, va buscar los elementos que necesita, llamese templates o lo que fuera.
+ * Dada las caracteristicas de la Cache dinamica, sucede aveces que algunos elementos, como imagenes o pdf
+ * pueden ir variando, ya sean en tamaño, contenido, o lo que fuese. De esta forma, para no tener que traernos nuevamente
+ * lo mismo, se evalua actualizar algunas partes de la cache,por eso el actualizarCacheDinamico
+ */
+self.addEventListener('fetch', e => {
 
     const respuesta = caches.match( e.request ).then( res => {
 
@@ -90,8 +82,6 @@ self.addEventListener( 'fetch', e => {
         }
 
     });
-
-
 
     e.respondWith( respuesta );
 

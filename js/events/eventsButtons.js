@@ -19,7 +19,7 @@ window.onload = function() {
     
   b1.addEventListener("click", laFunc );
   b2.addEventListener("click", laFunc );
-  b3.addEventListener("click", laFunc );
+  /**b3.addEventListener("click", laFunc );
   b4.addEventListener("click", laFunc );
   b5.addEventListener("click", laFunc );
   b6.addEventListener("click", laFunc );
@@ -27,7 +27,7 @@ window.onload = function() {
   b8.addEventListener("click", laFunc );
   b9.addEventListener("click", laFunc );
   b10.addEventListener("click", laFunc );
-
+ */
 };
 
 
