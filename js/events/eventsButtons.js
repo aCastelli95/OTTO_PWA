@@ -13,6 +13,9 @@ var b10 = document.getElementById('botonX10');
 var laFunc = function windowsAlertText(event){
   console.log(event);
   window.alert('Tocaste el boton' + event.path[0].id);
+  sendCommand(); //send mensaje de device a otto
+
+  // aca tiene que ir cuando esta conectado ya el bluetooth, sino ventana emergente
 };
 
 window.onload = function() {
@@ -29,5 +32,9 @@ window.onload = function() {
   b10.addEventListener("click", laFunc );
  */
 };
+
+function sendCommand(){
+  
+}
 
 
