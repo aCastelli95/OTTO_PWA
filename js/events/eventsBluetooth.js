@@ -1,17 +1,18 @@
 var connectButton = document.getElementById('conectar_bluetooth');
 var disconnectButton = document.getElementById('desconectar_bluetooth');
+let terminalContainer = document.getElementById('terminal');
 var deviceCache = null;
 
 //Conect
 connectButton.addEventListener("click", function(){
-    window.alert("Tocaste el bluetooth che!!");
+    log("Tocaste el bluetooth che!!");
     connect();
     // Sincronizar con arduino
 });
 
 //disconect
 disconnectButton.addEventListener("click", function(){
-    window.alert("Tocaste el bluetooth che!!");
+    log("Tocaste el bluetooth che!!");
     //disconnect();
     //Desconectar de arduino
 });
@@ -23,7 +24,7 @@ function connect() {
       requestBluetoothDevice()).
       then(device => connectDeviceAndCacheCharacteristic(device)).
       then(characteristic => startNotifications(characteristic)).
-      catch(error => window.alert(error));
+      catch(error => log(error));
   }
   
 // Disconnect from the connected device
@@ -34,13 +35,13 @@ function disconnect() {
 function requestBluetoothDevice() {
     //Busca a partir de la API -> navigator.bluetooth.requestDevice
     // el disopsitivo con service 0xFFE0 identificacion unica
-    window.alert('Requesting bluetooth device...');
+    log('Requesting bluetooth device...');
 
     return navigator.bluetooth.requestDevice({
         filters: [{services: [0xFFE0]}],
     }).
       then(device => {
-        window.alert('"' + device.name + '" bluetooth device selected');
+        log('"' + device.name + '" bluetooth device selected');
         deviceCache = device;
         return deviceCache;
       });
@@ -52,19 +53,19 @@ function requestBluetoothDevice() {
         return Promise.resolve(characteristicCache);
       }
     
-      window.alert('Connecting to GATT server...');
+      log('Connecting to GATT server...');
     
       return device.gatt.connect().
           then(server => {
-            window.alert('GATT server connected, getting service...');
+            log('GATT server connected, getting service...');
             return server.getPrimaryService(0xFFE0);
           }).
           then(service => {
-            window.alert('Service found, getting characteristic...');
+            log('Service found, getting characteristic...');
             return service.getCharacteristic(0xFFE1);
           }).
           then(characteristic => {
-            window.alert('Characteristic found');
+            log('Characteristic found');
             characteristicCache = characteristic;
             return characteristicCache;
           });
@@ -72,9 +73,14 @@ function requestBluetoothDevice() {
   
   // Enable the characteristic changes notification
   function startNotifications(characteristic) {
-    window.alert('Starting notifications...');
+    log('Starting notifications...');
     return characteristic.startNotifications().
       then(() => {
-        window.alert('Notifications started');
+        log('Notifications started');
       });
+  }
+
+  function log(data, type = '') {
+    terminalContainer.insertAdjacentHTML('beforeend',
+        '<div' + (type ? ' class="' + type + '"' : '') + '>' + data + '</div>');
   }
