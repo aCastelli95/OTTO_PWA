@@ -4,14 +4,14 @@ var deviceCache = null;
 
 //Conect
 connectButton.addEventListener("click", function(){
-    console.log("Tocaste el bluetooth che!!");
+    window.alert("Tocaste el bluetooth che!!");
     connect();
     // Sincronizar con arduino
 });
 
 //disconect
 disconnectButton.addEventListener("click", function(){
-    console.log("Tocaste el bluetooth che!!");
+    window.alert("Tocaste el bluetooth che!!");
     //disconnect();
     //Desconectar de arduino
 });
@@ -23,7 +23,7 @@ function connect() {
       requestBluetoothDevice()).
       then(device => connectDeviceAndCacheCharacteristic(device)).
       then(characteristic => startNotifications(characteristic)).
-      catch(error => console.log(error));
+      catch(error => window.alert(error));
   }
   
 // Disconnect from the connected device
@@ -34,13 +34,13 @@ function disconnect() {
 function requestBluetoothDevice() {
     //Busca a partir de la API -> navigator.bluetooth.requestDevice
     // el disopsitivo con service 0xFFE0 identificacion unica
-    console.log('Requesting bluetooth device...');
+    window.alert('Requesting bluetooth device...');
 
     return navigator.bluetooth.requestDevice({
         filters: [{services: [0xFFE0]}],
     }).
       then(device => {
-        console.log('"' + device.name + '" bluetooth device selected');
+        window.alert('"' + device.name + '" bluetooth device selected');
         deviceCache = device;
         return deviceCache;
       });
@@ -52,19 +52,19 @@ function requestBluetoothDevice() {
         return Promise.resolve(characteristicCache);
       }
     
-      console.log('Connecting to GATT server...');
+      window.alert('Connecting to GATT server...');
     
       return device.gatt.connect().
           then(server => {
-            console.log('GATT server connected, getting service...');
+            window.alert('GATT server connected, getting service...');
             return server.getPrimaryService(0xFFE0);
           }).
           then(service => {
-            console.log('Service found, getting characteristic...');
+            window.alert('Service found, getting characteristic...');
             return service.getCharacteristic(0xFFE1);
           }).
           then(characteristic => {
-            console.log('Characteristic found');
+            window.alert('Characteristic found');
             characteristicCache = characteristic;
             return characteristicCache;
           });
@@ -72,9 +72,9 @@ function requestBluetoothDevice() {
   
   // Enable the characteristic changes notification
   function startNotifications(characteristic) {
-    console.log('Starting notifications...');
+    window.alert('Starting notifications...');
     return characteristic.startNotifications().
       then(() => {
-        console.log('Notifications started');
+        window.alert('Notifications started');
       });
   }
