@@ -41,7 +41,7 @@ function sendCommand(){
   }
 
   writeToCharacteristic(characteristicCache, data);
-  log(data, 'out');
+  console.log(data);
 
 }
 
