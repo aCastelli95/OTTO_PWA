@@ -2,7 +2,7 @@
     "short_name": "FabiOTTO",
     "name" : "Robot Fabi Otto",
     "start_url": "index.html",
-    "background_color": "#2196F3",
+    "background_color": "#4a47a3",
     "display": "standalone",
     "orientation": "portrait",
     "icons": [{
