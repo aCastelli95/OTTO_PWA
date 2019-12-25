@@ -44,7 +44,12 @@ function disconnect() {
         }
       }
     
-      characteristicCache = null;
+      if (characteristicCache) {
+        characteristicCache.removeEventListener('characteristicvaluechanged',
+            handleCharacteristicValueChanged);
+        characteristicCache = null;
+      }
+
       deviceCache = null;
 
 }
@@ -109,6 +114,8 @@ function requestBluetoothDevice() {
     return characteristic.startNotifications().
       then(() => {
         console.log('Notifications started');
+        characteristic.addEventListener('characteristicvaluechanged',
+            handleCharacteristicValueChanged);
       });
   }
 
@@ -118,4 +125,10 @@ function requestBluetoothDevice() {
   function log(data, type = '') {
     terminalContainer.insertAdjacentHTML('beforeend',
         '<div' + (type ? ' class="' + type + '"' : '') + '>' + data + '</div>');
+  }
+  
+// Data receiving
+function handleCharacteristicValueChanged(event) {
+    let value = new TextDecoder().decode(event.target.value);
+    console.log(value);
   }
