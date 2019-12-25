@@ -10,7 +10,7 @@ connectButton.addEventListener("click", function(){
     // Sincronizar con arduino
 });
 
-//disconect
+//Desconectar de arduino
 disconnectButton.addEventListener("click", function(){
     console.log("Desconectar el bluetooth!!");
     disconnect();
@@ -30,16 +30,16 @@ function connect() {
 // Disconnect from the connected device
 function disconnect() {
     if (deviceCache) {
-        log('Disconnecting from "' + deviceCache.name + '" bluetooth device...');
+        console.log('Disconnecting from "' + deviceCache.name + '" bluetooth device...');
         deviceCache.removeEventListener('gattserverdisconnected',
             handleDisconnection);
     
         if (deviceCache.gatt.connected) {
           deviceCache.gatt.disconnect();
-          log('"' + deviceCache.name + '" bluetooth device disconnected');
+          console.log('"' + deviceCache.name + '" bluetooth device disconnected');
         }
         else {
-          log('"' + deviceCache.name +
+            console.log('"' + deviceCache.name +
               '" bluetooth device is already disconnected');
         }
       }
