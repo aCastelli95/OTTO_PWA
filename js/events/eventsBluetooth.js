@@ -5,15 +5,15 @@ var deviceCache = null;
 
 //Conect
 connectButton.addEventListener("click", function(){
-    console.log("Tocaste el bluetooth che!!");
+    console.log("Tocaste el bluetooth!!");
     connect();
     // Sincronizar con arduino
 });
 
 //disconect
 disconnectButton.addEventListener("click", function(){
-    console.log("Tocaste el bluetooth che!!");
-    //disconnect();
+    console.log("Desconectar el bluetooth!!");
+    disconnect();
     //Desconectar de arduino
 });
 
@@ -29,7 +29,24 @@ function connect() {
   
 // Disconnect from the connected device
 function disconnect() {
-//
+    if (deviceCache) {
+        log('Disconnecting from "' + deviceCache.name + '" bluetooth device...');
+        deviceCache.removeEventListener('gattserverdisconnected',
+            handleDisconnection);
+    
+        if (deviceCache.gatt.connected) {
+          deviceCache.gatt.disconnect();
+          log('"' + deviceCache.name + '" bluetooth device disconnected');
+        }
+        else {
+          log('"' + deviceCache.name +
+              '" bluetooth device is already disconnected');
+        }
+      }
+    
+      characteristicCache = null;
+      deviceCache = null;
+
 }
 
 function requestBluetoothDevice() {
@@ -49,7 +66,7 @@ function requestBluetoothDevice() {
       });
   }
 
-  // Va tratar de reconectarse
+  //Reconexion al mismo dispositivo anteriors
   function handleDisconnection(event) {
     let device = event.target;
   
@@ -61,7 +78,7 @@ function requestBluetoothDevice() {
         catch(error => console.log(error));
   }
   
-  // Connect to the device specified, get service and characteristic
+  // Conexión al dispositivo Bluetooth
   function connectDeviceAndCacheCharacteristic(device) {
     if (device.gatt.connected && characteristicCache) {
         return Promise.resolve(characteristicCache);
@@ -86,6 +103,7 @@ function requestBluetoothDevice() {
   }
   
   // Enable the characteristic changes notification
+  /**Funcion para realizar notificado - sincronizado los dispositivos */
   function startNotifications(characteristic) {
     console.log('Starting notifications...');
     return characteristic.startNotifications().
@@ -94,6 +112,9 @@ function requestBluetoothDevice() {
       });
   }
 
+  /**En caso de tener una terminal, o un div con terminal, esto
+   * iria realizando un debug de la aplicacion con su conexion bluetooth
+   */
   function log(data, type = '') {
     terminalContainer.insertAdjacentHTML('beforeend',
         '<div' + (type ? ' class="' + type + '"' : '') + '>' + data + '</div>');
