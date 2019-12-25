@@ -2,6 +2,8 @@ var connectButton = document.getElementById('conectar_bluetooth');
 var disconnectButton = document.getElementById('desconectar_bluetooth');
 let terminalContainer = document.getElementById('terminal');
 var deviceCache = null;
+// Characteristic object cache
+let characteristicCache = null;
 
 //Conect
 connectButton.addEventListener("click", function(){
