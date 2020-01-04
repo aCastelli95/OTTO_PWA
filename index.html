@@ -1,141 +1,311 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>FabiOTTO</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>FabiOTTO</title>
 
-      
-        <!-- MDB icon -->
-        <link rel="icon" href="img/otto.ino" type="image/x-icon">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-        <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!-- Material Design Bootstrap -->
-        <link rel="stylesheet" href="css/mdb.min.css">
-        <!-- Your custom styles (optional) -->
-        <link rel="stylesheet" href="css/style.css">
-        
-        <link rel="manifest" href="manifest.json">
-        
-    </head>
-    <body>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/otto.ino" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+    />
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="css/style.css" />
 
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
     <nav class="navbar navbar-light navbar-expand-md lighten-4">
-        <a class="navbar-brand" href="#">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg"
-                alt="avatar mx-auto white" class="rounded-circle img-fluid perfil">
-        </a>
-        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
-          aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
-              class="fas fa-bars fa-1x"></i></span></button>
-        <div class="collapse navbar-collapse text-center" id="navbarSupportedContent1"> 
-            <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-                        aria-controls="nav-home" aria-selected="true">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-                            aria-controls="nav-profile" aria-selected="false">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
-                            aria-controls="nav-contact" aria-selected="false">Contact</a>
-                    </li>
-            </ul>
-            <div class="ml-auto">
-                <a href="#" id="conectar_bluetooth" class="btn btn-info">Bluetooth</a>
-                <a href="#" id="desconectar_bluetooth" class="btn btn-light">Desconectar bluetooth</a>
-            </div>
+      <a class="navbar-brand" href="#">
+        <img
+          src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg"
+          alt="avatar mx-auto white"
+          class="rounded-circle img-fluid perfil"
+        />
+      </a>
+      <button
+        class="navbar-toggler toggler-example"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent1"
+        aria-controls="navbarSupportedContent1"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span>
+      </button>
+      <div
+        class="collapse navbar-collapse text-center"
+        id="navbarSupportedContent1"
+      >
+        <ul
+          class="nav nav-tabs justify-content-center"
+          id="myTab"
+          role="tablist"
+        >
+          <li class="nav-item">
+            <a
+              class="nav-item nav-link active"
+              id="nav-home-tab"
+              data-toggle="tab"
+              href="#nav-home"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-item nav-link"
+              id="nav-profile-tab"
+              data-toggle="tab"
+              href="#nav-profile"
+              role="tab"
+              aria-controls="nav-profile"
+              aria-selected="false"
+              >Profile</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-item nav-link"
+              id="nav-contact-tab"
+              data-toggle="tab"
+              href="#nav-contact"
+              role="tab"
+              aria-controls="nav-contact"
+              aria-selected="false"
+              >Contact</a
+            >
+          </li>
+        </ul>
+        <div class="ml-auto">
+          <a href="#" id="conectar_bluetooth" class="btn btn-info">Bluetooth</a>
+          <a href="#" id="desconectar_bluetooth" class="btn btn-light"
+            >Desconectar bluetooth</a
+          >
         </div>
+      </div>
     </nav>
-        
+
     <div class="tab-content" id="nav-tabContent">
-        <!--Primera de botonera-->
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <div class="btn-position-control">
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX1" >boton 1</button> 
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX2" >boton 2</button> 
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX2" >boton 2</button> 
-
-                </div>
-                <div class="btn-position-control">
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX1" >boton 1</button> 
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX2" >boton 2</button> 
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX2" >boton 2</button> 
-                </div>
-                <div class="btn-position-control">
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX1" >boton 1</button> 
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX2" >boton 2</button> 
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX2" >boton 2</button> 
-                </div>
-                    
-                <div class="btn-position-control">
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX1" >boton 1</button> 
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX2" >boton 2</button> 
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX2" >boton 2</button> 
-                </div>
-                <div class="btn-position-control">
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX1" >boton 1</button> 
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX2" >boton 2</button> 
-                    <button type="button" class="btn btn-success btn-rounded btn-control" id="botonX2" >boton 2</button> 
-                </div>
-            
+      <!--Primera de botonera-->
+      <div
+        class="tab-pane fade show active"
+        id="nav-home"
+        role="tabpanel"
+        aria-labelledby="nav-home-tab"
+      >
+        <div class="btn-position-control">
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="walkFordward"
+          >
+            walkFordward
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="walkBackground"
+          >
+            walkBackground
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="shakeLeg"
+          >
+            shakeLeg
+          </button>
         </div>
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
-                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-                        <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
-                            alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(16).jpg"
-                            alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(17).jpg"
-                            alt="Third slide">
-                        </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                        </a>
-                </div>
-
+        <div class="btn-position-control">
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="moonWalker"
+          >
+            moonWalker
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="crusaito"
+          >
+            crusaito
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="flapping"
+          >
+            flapping
+          </button>
         </div>
-    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-        este es el panel 3 que todavia no esta definido si contenido. Antes eran tarjetas pero ahora pasaran a ser otras cosas
+        <div class="btn-position-control">
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="tiptoeSwing"
+          >
+            tiptoeSwing
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="jitter"
+          >
+            jitter
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="happy"
+          >
+            happy
+          </button>
+        </div>
 
+        <div class="btn-position-control">
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="love"
+          >
+            love
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="fart"
+          >
+            fart
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="botonX2"
+          >
+            boton 2
+          </button>
+        </div>
+        <div class="btn-position-control">
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="end"
+          >
+            end
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="botonX2"
+          >
+            boton 2
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-rounded btn-control"
+            id="botonX2"
+          >
+            boton 2
+          </button>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-profile"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        <div
+          id="carouselExampleFade"
+          class="carousel slide carousel-fade"
+          data-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="d-block w-100"
+                src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
+                alt="First slide"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://mdbootstrap.com/img/Photos/Slides/img%20(16).jpg"
+                alt="Second slide"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="https://mdbootstrap.com/img/Photos/Slides/img%20(17).jpg"
+                alt="Third slide"
+              />
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carouselExampleFade"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carouselExampleFade"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-contact"
+        role="tabpanel"
+        aria-labelledby="nav-contact-tab"
+      >
+        este es el panel 3 que todavia no esta definido si contenido. Antes eran
+        tarjetas pero ahora pasaran a ser otras cosas
+      </div>
     </div>
-    </div>
 
-        <!-- End your project here-->
-        <!-- jQuery -->
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <!-- Bootstrap tooltips -->
-        <script type="text/javascript" src="js/popper.min.js"></script>
-        <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <!-- MDB core JavaScript -->
-        <script type="text/javascript" src="js/mdb.min.js"></script> 
-        <!-- eventos de la botonera JavaScript -->
-        <script type="text/javascript" src="js/events/eventsButtons.js"></script> 
-        <!-- eventos de la botonera JavaScript -->
-        <script type="text/javascript" src="js/events/eventsBluetooth.js"></script> 
-        
-        <script type="text/javascript" src="js/app.js"></script> 
-  
-        <!-- Your custom scripts (optional) -->
-        <script type="text/javascript"></script>
+    <!-- End your project here-->
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- eventos de la botonera JavaScript -->
+    <script type="text/javascript" src="js/events/eventsButtons.js"></script>
+    <!-- eventos de la botonera JavaScript -->
+    <script type="text/javascript" src="js/events/eventsBluetooth.js"></script>
 
-    </body>
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript"></script>
+  </body>
 </html>
