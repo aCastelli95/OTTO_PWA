@@ -1,27 +1,29 @@
 importScripts("js/sw-utils.js");
 
-const STATIC_CACHE = "static-v2"; // EL corazon de la app esta en esta cache( template, css basicos, etc.)
-const DYNAMIC_CACHE = "dynamic-v2"; // Contenido como imagenes o pdf que varian constantementes por mantenimiento de aplicativos
+const STATIC_CACHE = "static-v3"; // EL corazon de la app esta en esta cache( template, css basicos, etc.)
+const DYNAMIC_CACHE = "dynamic-v3"; // Contenido como imagenes o pdf que varian constantementes por mantenimiento de aplicativos
 const INMUTABLE_CACHE = "inmutable-v2"; // Contiene todas las urls de librerias externas que no van a cambiar, ejemplo Boostrap
 
 const APP_SHELL = [
-  //'/',
+  '/',
   "index.html",
-  "css/style.css",
   "img/otto.ino",
+  "img/otto.png",
+  "css/style.css",
   "js/app.js",
+  "js/style.js",
   "js/sw-utils.js",
-  "js/events/eventsButtons.js"
+  "js/events/eventsButtons.js",
+  "js/events/eventsBluetooth.js"
 ];
 
 const APP_SHELL_INMUTABLE = [
   "https://use.fontawesome.com/releases/v5.11.2/css/all.css",
-  "css/bootstrap.min.css",
-  "css/mdb.min.css",
-  "js/jquery.min.js",
-  "js/popper.min.js",
-  "js/bootstrap.min.js",
-  "js/mdb.min.js"
+  "https://fonts.googleapis.com/icon?family=Material+Icons",
+  "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css",
+  "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js",
+  "https://kit.fontawesome.com/66489ab8da.js"
 ];
 
 self.addEventListener("install", e => {

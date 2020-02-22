@@ -1,57 +1,110 @@
-nav {
-    background-color: #4a47a3;
+html,body{
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+header{
+  padding: 10px;
 }
 
-.perfil{ 
-    width: 50px; height: 50px;
-  }
-
-.card-body{
-    background-color: #4a47a3;
+body{
+  display: block;
+ 
 }
-.btn-rounded{
-    border-radius: 50px;
+.bluetooth_disconected{
+  background-color: white;
 }
-p, a{
-    font-size:25px;
-    font-family: roboto condensed,sans-serif;
-    color: white
-
+.bluetooth_disconected:hover{
+  background-color: #3498db;
 }
-
-.row {
-    text-align: center;
+.bluetooth_disconected i{
+  color: #3498db;
 }
-.card-header{
-    text-align: center;
+.bluetooth_disconected:hover i{
+  color: white;
 }
 
-.share {
-    background-color: #32d900;
-    padding: 10px 0px;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    width: 100%;
-  }
+.bluetooth_conected{
+  background-color: #3498db;
+}
+.bluetooth_conected i{
+  color: white;
+}
+div{
+  display: block;
+}
+
+#container{
+  padding: 10px;
+  min-height: 100%;
+  position: relative;
+}
+.arrow_buttons{
+  text-align: center;
+}
+.arrow_buttons a{
+  background-color: #00c851;
+
+}
+.arrow_buttons a:hover{
+  background-color: #2d2d64;
+}
+.div-button{
+  text-align: center;
+
+}
+
+.action_button{
+  background-color: #2d2d64;
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px;
+}
+.action_button:hover{
+  transform: scale(1.2);
+  background-color: #00c851;
   
-  .btn-position-control {
-    text-align: center;
-    position: relative;
-    top: 40px;
-  
-  }
+}
 
-  .btn-control {
-    border: 1px solid #466995;
-    margin: 20px;
-    display: inline-block;
-    height: 150px;
-    width: 200px;
-   
-  }
-  
-  .btn-control:hover {
-    background: #C0D6DF;
-    color: #FFF;
-  }
+.page-footer{
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  background-color:#00c851;
+  text-transform: uppercase;
+  text-align: center;
+}
+.nav_bar{
+  text-transform: uppercase;
+  background: white;
+  border-bottom: 2px solid #2d2d64;
+  box-shadow: 0 8px 10px -6px #2d2d64;
+}
+.nav_bar a{
+  color: #00c851;
+}
+
+#Home{
+  background: #2d2d64;
+}
+
+#apply{
+  border: 2px bold #00c851;
+}
+/* LOADING PAGE */
+
+#loading img{
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%,-50%);
+}
+#loading-gif{
+  position: relative;
+  left: 50%;
+  top: 600px;
+  transform: translate(-50%,-50%);
+  width: 250px;
+}
