@@ -53,27 +53,27 @@
 
       <tbody >
         <tr>
-          <td><a href="#modal1" type="button" data-title="Ascender" class="btn action_button modal-trigger action" data-content="Trata de ." id="ascend"><img src="img/icons/ascend.png"></a></td>
-          <td><a href="#modal1" type="button" data-title="Caerse" data-content="Se tira a la izquierda." class="btn action_button modal-trigger action" id="bendright"><img src="img/icons/bendright.png"></a></td>
-          <td><a href="#modal1" type="button" class="btn action_button modal-trigger action" id="jitter"><img src="img/icons/jitter.png"></a></td>
-          <td><a href="#modal1" type="button" class="btn action_button modal-trigger action" id="bendleft"><img src="img/icons/bendleft.png"></a></td>
-          <td><a type="button" class="btn action_button modal-trigger action" id="moves"><img src="img/icons/moves.png"></a></td>
+          <td><a href="#modal1" onclick="windowsAlertText(0)" type="button" class="btn action_button modal-trigger action" id="walkFordward"><img src="img/icons/ascend.png"></a></td>
+          <td><a href="#modal1" onclick="windowsAlertText(1)" type="button" class="btn action_button modal-trigger action" id="walkBackground"><img src="img/icons/bendright.png"></a></td>
+          <td><a href="#modal1" onclick="windowsAlertText(2)" type="button" class="btn action_button modal-trigger action" id="turnLeft"><img src="img/icons/jitter.png"></a></td>
+          <td><a href="#modal1" onclick="windowsAlertText(3)" type="button" class="btn action_button modal-trigger action" id="turnRigth"><img src="img/icons/bendleft.png"></a></td>
+          <td><a type="button"  onclick="windowsAlertText(4)" class="btn action_button modal-trigger action" id="swing"><img src="img/icons/moves.png"></a></td>
 
         </tr>
         <tr>
-          <td><a href="#modal1" type="button" class="btn action_button modal-trigger action" id="crossleft"><img src="img/icons/crossleft.png"></a></td>
-          <td><a href="#modal1" type="button" class="btn action_button modal-trigger action" id="crossright"><img src="img/icons/crossright.png"></a></td>
-          <td><a href="#modal1" type="button" class="btn action_button modal-trigger action" id="flapback"><img src="img/icons/flapback.png"></a></td>
-          <td><a href="#modal1" type="button" class="btn action_button modal-trigger action" id="flapfront"><img src="img/icons/flapfront.png"></a></td>
-          <td><a href="#modal1" type="button" class="btn action_button modal-trigger action" id="ultrasound"><img src="img/icons/ultrasound.png"></a></td>
+          <td><a href="#modal1" onclick="windowsAlertText(5)" type="button" class="btn action_button modal-trigger action" id="shakeLeg"><img src="img/icons/crossleft.png"></a></td>
+          <td><a href="#modal1" onclick="windowsAlertText(6)" type="button" class="btn action_button modal-trigger action" id="moonWalker"><img src="img/icons/crossright.png"></a></td>
+          <td><a href="#modal1" onclick="windowsAlertText(7)" type="button" class="btn action_button modal-trigger action" id="crusaito"><img src="img/icons/flapback.png"></a></td>
+          <td><a href="#modal1" onclick="windowsAlertText(8)" type="button" class="btn action_button modal-trigger action" id="flapping"><img src="img/icons/flapfront.png"></a></td>
+          <td><a href="#modal1" onclick="windowsAlertText(9)" type="button" class="btn action_button modal-trigger action" id="tiptoeSwing"><img src="img/icons/ultrasound.png"></a></td>
 
       </tr>
       <tr>
-        <td><a href="#modal1" type="button" class="btn action_button modal-trigger action"  id="moonwalkleft"><img src="img/icons/moonwalkleft.png"></a></td>
-        <td><a href="#modal1" type="button" class="btn action_button modal-trigger action" id="moonwalkright"><img src="img/icons/moonwalkright.png"></a></td>
-        <td><a href="#modal1" type="button" class="btn action_button modal-trigger action" id="shakeleft"><img src="img/icons/shakeleft.png"></a></td>
-        <td><a href="#modal1" type="button" class="btn action_button modal-trigger action" id="shakeright"><img src="img/icons/shakeright.png"></a></td>
-        <td><a href="#modal1" type="button" class="btn action_button modal-trigger action" id="swing"><img src="img/icons/swing.png"></a></td>
+        <td><a href="#modal1" onclick="windowsAlertText(10)" type="button" class="btn action_button modal-trigger action"  id="jitter"><img src="img/icons/moonwalkleft.png"></a></td>
+        <td><a href="#modal1" onclick="windowsAlertText(11)" type="button" class="btn action_button modal-trigger action" id="happy"><img src="img/icons/moonwalkright.png"></a></td>
+        <td><a href="#modal1" onclick="windowsAlertText(12)" type="button" class="btn action_button modal-trigger action" id="love"><img src="img/icons/shakeleft.png"></a></td>
+        <td><a href="#modal1" onclick="windowsAlertText(13)" type="button" class="btn action_button modal-trigger action" id="fart"><img src="img/icons/shakeright.png"></a></td>
+        <td><a href="#modal1" onclick="windowsAlertText(14)" type="button" class="btn action_button modal-trigger action" id="end"><img src="img/icons/swing.png"></a></td>
 
       </tr>
         <!-- NO DESARROLLADAS
@@ -98,7 +98,7 @@
     <!-- RIGHT DOWN MENU BUTTON-->
     <div class="fixed-action-btn">
       <a id="bluetooth" class="btn-floating btn-large waves-effect waves-light bluetooth_disconected"><i class="material-icons">bluetooth</i></a>
-
+      <a id="desconectar_bluetooth" class="btn-floating btn-large"><i class="material-icons">Desconectar_bluetooth</i></a>
     </div>
 
   <!-- Modal Structure -->
