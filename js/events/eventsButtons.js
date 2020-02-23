@@ -1,9 +1,9 @@
 function windowsAlertText(event) {
   console.log(event);
-  sendCommand(event); //send mensaje de device a otto
+  sendCommand(characteristicCache,event); //send mensaje de device a otto
 };
 
-function sendCommand(value) {
+function sendCommand(characteristic,value) {
   data = "0001|03|" + value + "|200000000";
   characteristic.writeValue(new TextEncoder().encode(data));
 }
