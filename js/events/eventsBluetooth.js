@@ -5,7 +5,7 @@ let characteristicCache = null;
 
 //Conect
 connectButton.addEventListener("click", function(){
-    console.log("Tocaste el bluetooth!!");
+    console.log("Activaste el bluetooth!!");
     connect();
     // Sincronizar con arduino
 });
@@ -29,18 +29,21 @@ function connect() {
   
 // Disconnect from the connected device
 function disconnect() {
+    title = "Desconectando";
     if (deviceCache) {
-        console.log('Disconnecting from "' + deviceCache.name + '" bluetooth device...');
+        descripcion = 'Desconectando device de Cachee "' + deviceCache.name + '" bluetooth device...';
+        notificationWarning(title,texto);
         deviceCache.removeEventListener('gattserverdisconnected',
             handleDisconnection);
     
         if (deviceCache.gatt.connected) {
           deviceCache.gatt.disconnect();
-          console.log('"' + deviceCache.name + '" bluetooth device disconnected');
+          descripcion = '"' + deviceCache.name + '" dispositivo Bluetooth desconectado!!"';
+          notificationWarning(title,texto);
         }
         else {
-            console.log('"' + deviceCache.name +
-              '" bluetooth device is already disconnected');
+          description = '"' + deviceCache.name +'" El dispositivo ya se encuentra desconectado';
+          notificationWarning(title,texto);
         }
       }
     
@@ -71,7 +74,7 @@ function requestBluetoothDevice() {
       });
   }
 
-  //Reconexion al mismo dispositivo anteriors
+  //Reconexion al mismo dispositivo anterior
   function handleDisconnection(event) {
     let device = event.target;
   
@@ -113,7 +116,9 @@ function requestBluetoothDevice() {
     console.log('Starting notifications...');
     return characteristic.startNotifications().
       then(() => {
-        console.log('Notifications started');
+        title= "Bluetooth - Conectado";
+        description = "Conectado con Fabiotto";
+        notificationSucces(title,description);
         characteristic.addEventListener('characteristicvaluechanged',
             handleCharacteristicValueChanged);
       });
