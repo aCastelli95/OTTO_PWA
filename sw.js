@@ -15,7 +15,7 @@ const APP_SHELL = [
   "js/sw-utils.js",
   "js/toastr.js",
   "js/events/eventsButtons.js",
-  "js/events/eventsBluetooth.js",
+  "js/events/eventsBluetooth.js"
   
 ];
 
