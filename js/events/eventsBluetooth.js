@@ -6,14 +6,14 @@ let characteristicCache = null;
 // Conect
 connectButton.addEventListener('click', e => {
   console.log('Activaste el bluetooth!!');
-  e.waitUntil(connect());
+  e.waitUntil(new Promise(connect()));
   // Sincronizar con arduino
 });
 
 // Desconectar de arduino
 disconnectButton.addEventListener('click', e => {
   console.log('Desconectar el bluetooth!!');
-  e.waitUntil(disconnect());
+  e.waitUntil(new Promise(disconnect()));
   // Desconectar de arduino
 });
 
